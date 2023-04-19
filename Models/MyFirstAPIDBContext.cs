@@ -14,11 +14,11 @@ namespace MyFirstAPI.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            var connectionString = Configuation.GetConnectionString("CustomerDataServce");
+            var connectionString = Configuation.GetConnectionString("MyConnection");
             options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
 
-        public DbSet<Customer> Customers { get; set; } = null;
-        public DbSet<Email> Emails { get; set; } = null;
+        public DbSet<Customer> Customers { get; set; } = null!;
+        public DbSet<Email> Emails { get; set; } = null!;
     }
 }
