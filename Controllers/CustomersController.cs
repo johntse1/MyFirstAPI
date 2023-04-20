@@ -24,10 +24,6 @@ namespace MyFirstAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
         {
-          if (_context.Customers == null)
-          {
-              return NotFound();
-          }
             return await _context.Customers.ToListAsync();
         }
 
@@ -35,10 +31,6 @@ namespace MyFirstAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Customer>> GetCustomer(int id)
         {
-          if (_context.Customers == null)
-          {
-              return NotFound();
-          }
             var customer = await _context.Customers.FindAsync(id);
 
             if (customer == null)
